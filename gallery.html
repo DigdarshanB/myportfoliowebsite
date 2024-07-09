@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gallery</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha384-3BImAqT6+pzE77QQMkCRjNOu5xWZh3ZC1G/UbqzT+9o6ZHRDm1JkTFAuFyf1PH6F" crossorigin="anonymous" />
     <style>
       body {
           margin: 0;
           padding: 0;
           font-family: 'Rubik', sans-serif;
+          background: #fbe0ca;
       }
 
       .top-image-gallery {
@@ -18,40 +20,54 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          background-image:url('assets/images/brick.jpg');
+          background-image: url('assets/images/brick.jpg');
           background-size: cover;
+          background-position: center;
+          opacity: 0.7;
       }
 
       .top-image-gallery h1 {
           font-family: 'Rubik', sans-serif;
           color: #171212;
-          font-size: 3em;
-          opacity: 0.7;
+          font-size: 3.4em;
+          opacity: 0.9;
+          font-style: italic;
       }
 
       .navbar {
           margin-top: 10px;
-         
       }
 
       .collapse .navbar-nav {
           display: flex;
           justify-content: center;
           width: 100%;
-         
+      }
+
+      .navbar.navbar-expand-lg.navbar-light.bg-light{
+        margin: 20px;
       }
 
       .collapse .navbar-nav .nav-item {
           padding: 0 20px;
+          font-size: 1.1em;
+          font-family: 'Rubik', sans-serif;
       }
 
       .container {
           width: 100%;
           display: flex;
           padding: 20px;
-          justify-content: center;
+          justify-content: space-between;
           align-items: center;
-          margin-top: 10px;
+          padding-top: 10px;
+      }
+
+      .container img {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          position: relative;
       }
 
       .box {
@@ -67,12 +83,13 @@
           flex-wrap: wrap;
           justify-content: center;
           align-items: center;
-          gap: 20px;
+          gap: 30px;
       }
 
       .photos img,
       .videos video {
-          width: 30%;
+          width: 100%;
+          max-width: 30%;
           border-radius: 5px;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
           transition: transform 0.3s;
@@ -88,84 +105,98 @@
           display: flex;
       }
 
-      #footer {
-          margin-top: 50px;
-          text-align: center;
-          background: #333;
-          color: white;
-          padding: 20px 0;
-      }
-
       .footer {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+          background-color: #291b1b;
+          width: 100%;
+          height: 80%;
       }
 
       .footer-text h1 {
-          font-size: 1.5em;
-          margin-bottom: 20px;
+          text-align: center;
+          font-family: 'Rubik', sans-serif;
+          color: #d5d0d0;
+          font-size: 2em;
+          padding-bottom: 20px;
+          padding-top: 30px;
+      }
+
+      .footer-icons {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 2em;  
+          text-align: center;
+          padding-bottom: 20px;
+          color: #f3e9e9;
+      }
+
+      .footer-icons i {
+          color: #ceccca;
+          margin-inline: 20px;
       }
 
       .footer-icons a {
-          color: white;
-          font-size: 1.5em;
-          margin: 0 10px;
-          transition: color 0.3s;
+          text-align: center;
+          font-size: 2em;
+          color: #ddcece;
       }
 
-      .footer-icons a:hover {
-          color: #d5d0d0;
-      }
-
-      .copyright {
+      .copyright p {
           margin-top: 20px;
-          font-size: 0.9em;
+          text-align: center;
+          font-size: .8em;
+          color: rgb(204, 200, 195);
+          padding-bottom: 10px;
       }
-      .footer{
-    background-color: #291b1b;
-    width: 100%;
-    height: 80%;
-}
-.footer-text h1{
-    text-align: center;
-    font-family: rubik, sans-serif;
-    color: #d5d0d0;
-    font-size: 2em;
-    padding-bottom: 20px;
-    padding-top: 30px;
-}
 
-.footer-icons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1em;  
-    text-align: center;
-    padding-bottom: 20px;
-}
-.footer-icons i{
-    color: rgb(204, 200, 195);
-    margin-inline: 20px;
-   
-}
-.footer-icons a{
-    text-align: center;
-}
+      @media only screen and (max-width: 700px) {
+          .container.box {
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              position: relative;
+          }
 
-.copyright p{
-margin-top: 20px;
-text-align: center;
-font-size: .8em;
-color: rgb(204, 200, 195);
-padding-bottom: 10px;
-}
+          .top-image-gallery {
+              width: 100%;
+              height: 10vh;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-image: url('assets/images/brick.jpg');
+              background-size: cover;
+              background-position: center;
+          }
 
+          .top-image-gallery h1 {
+              font-family: 'Rubik', sans-serif;
+              color: #171212;
+              font-size: 2.5em;
+              opacity: 0.9;
+              font-style: italic;
+          }
+      }
 
-nav .fa-bars, nav .fa-times {
-    display: none;
-}
+      .carousel-inner .carousel-item video {
+          height: calc(100vh - 200px);
+          width: 100%;
+          object-fit: cover;
+      }
 
+      .carousel-caption {
+          background-color: rgba(0, 0, 0, 0.5);
+          padding: 10px;
+          border-radius: 5px;
+      }
+
+      .carousel-indicators button {
+          background-color: #171212;
+      }
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+          filter: invert(100%);
+      }
     </style>
   </head>
   <body>
@@ -182,24 +213,24 @@ nav .fa-bars, nav .fa-times {
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home </a>
+                  <a class="nav-link" href="index.html#home">Home </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#about">About</a>
+                  <a class="nav-link" href="index.html#about">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#portfolio">Portfolio</a>
+                  <a class="nav-link" href="index.html#portfolio">Portfolio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#contact">Contact</a>
+                  <a class="nav-link" href="index.html#contact">Contact</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Contents
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Photos</a>
-                    <a class="dropdown-item" href="#">Videos</a>
+                    <a class="dropdown-item" href="#" id="photos-link">Photos</a>
+                    <a class="dropdown-item" href="#" id="videos-link">Videos</a>
                   </div>
                 </li>
               </ul>
@@ -208,16 +239,15 @@ nav .fa-bars, nav .fa-times {
 
         <div class="container">
             <div class="box">
-                <div class="photos active">
-                   
-                    <img src="assets/images/misty.JPG" alt="photo">
-                    <img src="assets/images/zoom.JPG" alt="photo">
-                    <img src="assets/images/himal.JPG" alt="photo">
-                    <img src="assets/images/pokhari.JPG" alt="photo">
-                    <img src="assets/images/django.JPG" alt="photo">
-                    <img src="assets/images/pipe.JPG" alt="photo">
+                <div class="photos active" id="photos">
+                    <img src="assets/images/misty.JPG" alt="photo" class="img-fluid">
+                    <img src="assets/images/zoom.JPG" alt="photo" class="img-fluid">
+                    <img src="assets/images/himal.JPG" alt="photo" class="img-fluid">
+                    <img src="assets/images/pokhari.JPG" alt="photo" class="img-fluid">
+                    <img src="assets/images/django.JPG" alt="photo" class="img-fluid">
+                    <img src="assets/images/pipe.JPG" alt="photo" class="img-fluid">
                 </div>
-                <div class="videos">
+                <div class="videos" id="videos">
                     <div id="carouselExampleCaptions" class="carousel slide">
                         <div class="carousel-indicators">
                           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -226,26 +256,20 @@ nav .fa-bars, nav .fa-times {
                         </div>
                         <div class="carousel-inner">
                           <div class="carousel-item active">
-                            <video src="" width="auto" height="auto"></video>
+                            <video src="assets/images/nagarkot.mp4" controls class="img-fluid"></video>
                             <div class="carousel-caption d-none d-md-block">
                               <h5>"tranquilidad"</h5>
                               <p>Music: Quadro Verde by Rubel.</p>
                             </div>
                           </div>
                           <div class="carousel-item">
-                             <video src=""></video>
+                             <video src="assets/images/manakamana.mp4" controls class="img-fluid"></video>
                             <div class="carousel-caption d-none d-md-block">
-                              <h5>Second slide label</h5>
-                              <p>Some representative placeholder content for the second slide.</p>
+                              <h5>Manakamana</h5>
+                              <p>Music: Now and Then by The Beatles.</p>
                             </div>
                           </div>
-                          <div class="carousel-item">
-                            <video src=""></video>
-                            <div class="carousel-caption d-none d-md-block">
-                              <h5>Third slide label</h5>
-                              <p>Some representative placeholder content for the third slide.</p>
-                            </div>
-                          </div>
+                         
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -269,12 +293,11 @@ nav .fa-bars, nav .fa-times {
                 <h1>F o l l o w</h1>
             </div>
             <div class="footer-icons">
-                <a href="https://www.youtube.com/channel/UCJnXm-NvPBU5dmzNWsHS_mg"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.instagram.com/digdarshan_b/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.facebook.com/DigdarshanB"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://github.com/DigdarshanB"><i class="fa-brands fa-github"></i>
+                <a href="https://www.youtube.com/channel/UCJnXm-NvPBU5dmzNWsHS_mg"> <i class="fa-brands fa-youtube fa-flip-vertical"></i> </a>
+                <a href="https://www.instagram.com/digdarshan_b/"> <i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/DigdarshanB"><i class="fa-brands fa-facebook"></i> </a>
+                <a href="https://github.com/DigdarshanB"><i class="fa-brands fa-github"></i> </a>
             </div>
-
             <div class="copyright">
                 <p>&copy; 2024 Digdarshan Bhattarai. All rights reserved.</p>
             </div>
@@ -283,5 +306,19 @@ nav .fa-bars, nav .fa-times {
 </section>
 <!-- --------------------------------Footer Ends-------------------------------------- --> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('photos-link').addEventListener('click', function() {
+            document.getElementById('photos').classList.add('active');
+            document.getElementById('videos').classList.remove('active');
+        });
+
+        document.getElementById('videos-link').addEventListener('click', function() {
+            document.getElementById('photos').classList.remove('active');
+            document.getElementById('videos').classList.add('active');
+        });
+
+        // Show photos by default
+        document.getElementById('photos').classList.add('active');
+    </script>
   </body>
 </html>
