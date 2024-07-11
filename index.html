@@ -10,10 +10,27 @@
 <body>
 <!-------------------------------------topbar section start--------------------------------------------->
 <section id="home">
-    <div class="topbar">
-        <div class="topbar-text">
-            <h1>Digdarshan.</h1>
-        </div>
+    
+        <div class="home-page">
+            <div class="home-image">
+               
+                <div class="navbar">
+                    <nav>
+                        <h1>Digdarshan.</h1>
+                        <ul id="nav-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                        <!-- <div class="hamburger">
+                            <span class="bars"> <i class="fa-solid fa-bars"></i></span>
+                        </div> -->
+                    
+                    </nav>
+                </div>
+
         <div class="short-intro">
             <h2>
                 <span class="role">Coding</span> |
@@ -21,18 +38,12 @@
                 <span class="role">Music</span>
             </h2>
         </div>
-        <nav>
-            <ul id="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <i class="fa fa-bars" id="menu-icon"></i>
-            <i class="fa fa-times" id="close-icon" style="display: none;"></i>
-        </nav>
-    </div>
+
+        </div>
+            </div>
+                
+       
+ 
 </section>
 <!------------------------------------------------topbar section end------------------------------------------>
 
@@ -163,12 +174,13 @@
                     <p2><i class="fa-sharp fa-solid fa-phone"></i>Phone: 9869362336</p2>
                 </div>
                 <div class="contact-right">
-                    <form>
+                    <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
                         <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                         <button class="btn btn1" type="submit">Submit</button>
                     </form>
+                    <span id="message"></span>
                 </div>
             </div>
         </div>    
@@ -197,5 +209,22 @@
     </footer>
 </section>
 <!-- --------------------------------Footer Ends-------------------------------------- --> 
+<script>
+    const scriptURL = '<https://script.google.com/macros/s/AKfycbyYE8k8J_qn0EhfbGjt5yUjNiZY5o3jNxyAPMtfLg8-kLsEjDKNvNnk5dp3mFgGMsW0pA/exec>'
+    const form = document.forms['submit-to-google-sheet']
+    const message = document.getElementById("message")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response =>{
+            message.innerHTML="Message sent successfully!"
+            setTimeout(function(){
+                message.innerHTML=""
+            },5000)
+            form.reset()
+        } )
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 </html>
