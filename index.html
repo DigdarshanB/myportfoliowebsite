@@ -24,10 +24,8 @@
                             <li><a href="gallery.html">Gallery</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
-                        <!-- <div class="hamburger">
-                            <span class="bars"> <i class="fa-solid fa-bars"></i></span>
-                        </div> -->
-                    
+                        <i class="fa fa-bars" id="menu-icon" onclick="toggleMenu()"></i>
+                        <i class="fa fa-times" id="close-icon" onclick="toggleMenu()"></i>
                     </nav>
                 </div>
 
@@ -226,5 +224,44 @@
         .catch(error => console.error('Error!', error.message))
     })
   </script>
+
+<script>
+    function toggleMenu() {
+        var navLinks = document.getElementById("nav-links");
+        var menuIcon = document.getElementById("menu-icon");
+        var closeIcon = document.getElementById("close-icon");
+
+        if (navLinks.style.display === "flex") {
+            navLinks.style.display = "none";
+            menuIcon.style.display = "block";
+            closeIcon.style.display = "none";
+        } else {
+            navLinks.style.display = "flex";
+            navLinks.style.flexDirection = "column";
+            navLinks.style.position = "fixed";
+            navLinks.style.top = "0";
+            navLinks.style.right = "0";
+            navLinks.style.width = "30%";
+            navLinks.style.height = "100vh";
+            navLinks.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
+            navLinks.style.justifyContent = "center";
+            navLinks.style.alignItems = "center";
+            navLinks.style.zIndex = "1000";
+            menuIcon.style.display = "none";
+            closeIcon.style.display = "block";
+        }
+    }
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+            document.getElementById("nav-links").style.display = "flex";
+            document.getElementById("menu-icon").style.display = "none";
+            document.getElementById("close-icon").style.display = "none";
+        } else {
+            document.getElementById("nav-links").style.display = "none";
+            document.getElementById("menu-icon").style.display = "block";
+        }
+    });
+    </script>
 </body>
 </html>
